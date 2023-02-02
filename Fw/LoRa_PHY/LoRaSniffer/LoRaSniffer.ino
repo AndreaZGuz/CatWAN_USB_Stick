@@ -230,7 +230,7 @@ void set_pl(){
   arg = SCmd.next();  
   if (arg != NULL){
     preambleLength = atoi(arg);
-    if(preambleLength > 5 || preambleLength < 65536){
+    if(preambleLength < 6 || preambleLength > 65536){
       Serial.println("Error setting the Preamble Length");
       Serial.println("Value must be between 6 and 65535");
       return;
@@ -411,7 +411,7 @@ void set_tx1(){
     }
   
     for(int j = 0; j < i; j++){
-      Serial.print(data[j]);
+      Serial.print(data[j], HEX);
       Serial.print(" ");
     }
     
